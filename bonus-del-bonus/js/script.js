@@ -4,11 +4,11 @@ btn.addEventListener('click',() => {
     const selectDifficulty = document.getElementById('difficulty').value;
     const playingField = document.getElementById('playingField');
     const scoreRecorder = document.getElementById('scoreRecorder')
-    scoreRecorder.classList.add('d-none');
     const randomContainer = [];
     if(selectDifficulty === ''){
         return;
     } else{
+        scoreRecorder.classList.add('d-none');
         console.clear();
         playingField.innerHTML = '';
         const squareNum = difficultySelector(selectDifficulty);
