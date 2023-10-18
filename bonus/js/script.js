@@ -40,6 +40,6 @@ function boxGenerator(squareIndex, squareNumber){
     square.addEventListener('click', function(){
         square.classList.add('active-box');
         console.log(squareIndex + 1);
-    });
+    }, {once : true});
     return square
 };
