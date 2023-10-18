@@ -5,7 +5,8 @@ btn.addEventListener('click', function(){
     squareNum = 100;
     for (let i = 0; i < squareNum; i++){
         let box = boxGenerator(i);
-        console.log(box);
+        // console.log(box);
+        minedGrid.append(box);
     }
 });
 
