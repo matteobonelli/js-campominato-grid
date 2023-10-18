@@ -12,6 +12,9 @@
 .box{
     border: 2px solid white;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .active-box{

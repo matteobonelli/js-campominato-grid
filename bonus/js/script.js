@@ -12,18 +12,18 @@ btn.addEventListener('click', function(){
     } else {
         return
     }
-    console.log(squareNum);
+    console.log(selectDifficulty);
     const playingField = document.getElementById('playingField');
     playingField.innerHTML = '';
-    playingField.append(gridFieldGenerator());
+    playingField.append(gridFieldGenerator(squareNum));
     // console.log(playingField)
 });
 
-function gridFieldGenerator(){
+function gridFieldGenerator(squareNumber){
     const minedGrid = document.createElement('div');
     minedGrid.classList.add('minedGrid');
-    for (let i = 0; i < squareNum; i++){
-        let box = boxGenerator(i);
+    for (let i = 0; i < squareNumber; i++){
+        let box = boxGenerator(i, squareNumber);
         // console.log(box);
         minedGrid.append(box);
     }
@@ -32,12 +32,14 @@ function gridFieldGenerator(){
 
 function boxGenerator(squareIndex, squareNumber){
     const square = document.createElement('div');
+    const squareDimension = Math.sqrt(squareNumber);
+    square.style.width = `calc(100% / ${squareDimension})`;
+    square.style.height = square.style.width;
     square.classList.add('box');
+    square.innerHTML = squareIndex + 1;
     square.addEventListener('click', function(){
         square.classList.add('active-box');
         console.log(squareIndex + 1);
     });
-    square.style.width = ``
-
     return square
 };
