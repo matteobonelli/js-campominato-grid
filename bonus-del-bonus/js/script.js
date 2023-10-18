@@ -3,7 +3,9 @@ const btn = document.querySelector('.btn');
 btn.addEventListener('click',() => {
     const selectDifficulty = document.getElementById('difficulty').value;
     const playingField = document.getElementById('playingField');
-    let randomContainer = [];
+    const scoreRecorder = document.getElementById('scoreRecorder')
+    scoreRecorder.classList.add('d-none');
+    const randomContainer = [];
     if(selectDifficulty === ''){
         return;
     } else{
@@ -46,6 +48,8 @@ function gridFieldGenerator(squareNumber, randomContainer){
 function boxGenerator(squareIndex, squareNumber, randomContainer){
     const square = document.createElement('div');
     const squareDimension = Math.sqrt(squareNumber);
+    const scoreRecorder = document.getElementById('scoreRecorder');
+    score = 0;
     square.style.width = `calc(100% / ${squareDimension})`;
     square.style.height = square.style.width;
     square.classList.add('box');
@@ -63,9 +67,12 @@ function boxGenerator(squareIndex, squareNumber, randomContainer){
         square.classList.add(boxColor);
         if (boxColor === 'boom-box'){
             console.log('Hai perso!');
-            
         } else{
             console.log(squareIndex + 1);
+            score += 100;
+            scoreRecorder.innerHTML = `<h4 class = 'display-3 text-danger fw-bold text-center'>Il tuo score</h4>
+            <div class = 'fw-bold display-5 text-center text-light'>${score}</div>`;
+            scoreRecorder.classList.remove('d-none');
         }
     }, {once : true});
     return square

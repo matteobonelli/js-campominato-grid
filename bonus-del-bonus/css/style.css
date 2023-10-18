@@ -6,6 +6,14 @@
     display: flex;
     flex-wrap: wrap;
 }
+main{
+    position: relative
+}
+#scoreRecorder{
+    position: absolute;
+    top: 10%;
+    right: 9%;
+}
 .form-select{
     width: 200px;
 }
