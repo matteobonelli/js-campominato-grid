@@ -1,7 +1,21 @@
 const btn = document.querySelector('.btn');
 
-btn.addEventListener('click', function(){
+btn.addEventListener('click',() => {
     const selectDifficulty = document.getElementById('difficulty').value;
+    const playingField = document.getElementById('playingField');
+    if(selectDifficulty === ''){
+        return;
+    } else{
+        playingField.innerHTML = '';
+        const squareNum = difficultySelector(selectDifficulty);
+        // console.log(squareNum);
+        playingField.append(gridFieldGenerator(squareNum));
+        // console.log(playingField)
+    }
+    
+});
+
+function difficultySelector(selectDifficulty){
     let squareNum;
     if (selectDifficulty === 'easy'){
         squareNum = 100;
@@ -9,15 +23,9 @@ btn.addEventListener('click', function(){
         squareNum = 81;
     } else if (selectDifficulty === 'hard'){
         squareNum = 49;
-    } else {
-        return
     }
-    console.log(selectDifficulty);
-    const playingField = document.getElementById('playingField');
-    playingField.innerHTML = '';
-    playingField.append(gridFieldGenerator(squareNum));
-    // console.log(playingField)
-});
+    return squareNum
+}
 
 function gridFieldGenerator(squareNumber){
     const minedGrid = document.createElement('div');
@@ -37,7 +45,7 @@ function boxGenerator(squareIndex, squareNumber){
     square.style.height = square.style.width;
     square.classList.add('box');
     square.innerHTML = squareIndex + 1;
-    square.addEventListener('click', function(){
+    square.addEventListener('click', () => {
         square.classList.add('active-box');
         console.log(squareIndex + 1);
     }, {once : true});
