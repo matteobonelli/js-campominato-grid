@@ -3,4 +3,18 @@
     height: 800px;
     border: 2px solid white;
     margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 2px solid white;
+    color: white;
+}
+
+.active-box{
+    background-color: aqua;
+    color: black;
 }
