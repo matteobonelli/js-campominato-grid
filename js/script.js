@@ -22,6 +22,7 @@ function gridFieldGenerator(){
 function boxGenerator(squareIndex){
     const square = document.createElement('div');
     square.classList.add('box');
+    square.innerHTML = squareIndex + 1;
     square.addEventListener('click', function(){
         square.classList.add('active-box');
         console.log(squareIndex + 1);
