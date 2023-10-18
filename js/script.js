@@ -2,6 +2,7 @@ const btn = document.querySelector('.btn');
 
 btn.addEventListener('click', function(){
     const minedGrid = document.getElementById('minedGrid');
+    minedGrid.innerHTML = '';
     squareNum = 100;
     for (let i = 0; i < squareNum; i++){
         let box = boxGenerator(i);
