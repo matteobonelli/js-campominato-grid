@@ -6,13 +6,13 @@ btn.addEventListener('click',() => {
     if(selectDifficulty === ''){
         return;
     } else{
+        console.clear();
         playingField.innerHTML = '';
         const squareNum = difficultySelector(selectDifficulty);
         // console.log(squareNum);
         playingField.append(gridFieldGenerator(squareNum));
         // console.log(playingField)
     }
-    
 });
 
 function difficultySelector(selectDifficulty){
